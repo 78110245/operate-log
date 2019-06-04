@@ -50,6 +50,9 @@ class Recorder
                 $type    = OperateLog::TYPE_INSERT;
                 break;
             case ActiveRecord::EVENT_AFTER_UPDATE :
+                if (empty($event->changedAttributes)) {
+                    return;
+                }
                 $oldData = Json::encode($event->changedAttributes);
                 $newData = Json::encode(array_intersect_key($sender->attributes, $event->changedAttributes));
                 $type    = OperateLog::TYPE_UPDATE;
