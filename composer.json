@@ -1,5 +1,6 @@
 {
   "name": "xlerr/operate-log",
+  "license": "MIT",
   "type": "library",
   "authors": [
     {
